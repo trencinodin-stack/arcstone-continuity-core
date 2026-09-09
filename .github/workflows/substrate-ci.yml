@@ -22,13 +22,16 @@ jobs:
           clean: true
           fetch-depth: 1
 
-      - name: "Initialize Environment and Test Harness"
-        run: |
-          echo "[TARGET HASH ANCHOR]: A-77-DELTA-SHIELD-LOCKED"
-          echo "[BASELINE RELEASE]: v1.3.0-exec"
+      - name: "Set up Node.js Environment"
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: "Install Dependencies"
+        run: npm install
 
       - name: "Execute Lifecycle Invariant Harness"
-        run: npm run test:unit -- --file=tests/validateLifecycleInvariants.ts
+        run: npm run test:unit -- tests/validateLifecycleInvariants.ts
 
       - name: "Execute Clock Drift Lattice Suites"
-        run: npm run test:unit -- --file=tests/clockDriftLattice.test.ts
+        run: npm run test:unit -- tests/clockDriftLattice.test.ts
