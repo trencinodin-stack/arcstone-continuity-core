@@ -1,0 +1,12 @@
+# Rust Artifacts
+/target/
+**/*.rs.bk
+
+# Node/JavaScript Artifacts
+node_modules/
+npm-debug.log
+.logs/
+
+# Operating System Specific
+.DS_Store
+Thumbs.db
