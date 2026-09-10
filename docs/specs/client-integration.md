@@ -1,4 +1,5 @@
-Markdown# Client Integration & Deterministic Safety Contract
+# Client Integration & Deterministic Safety Contract
+
 **Document Reference:** `ARC-SPEC-2026-CLI-01`  
 **Status:** `RELEASE_CANDIDATE_BASELINE`  
 **Temporal Anchor:** Sep 10, 2026, 12:25 PM  
