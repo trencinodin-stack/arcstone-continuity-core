@@ -19,6 +19,9 @@ This directory contains the canonical specifications, theoretical proofs, and wh
 | **WP010** | Architectural Analysis: Inverted Substrate Paradigm | [`ARC-PUB-2026-WP010-Inverted-Substrate-Paradigm.pdf`](whitepapers/ARC-PUB-2026-WP010-Inverted-Substrate-Paradigm.pdf) | [10.5281/zenodo.22680282](https://doi.org/10.5281/zenodo.22680282) |
 | **PHYS02** | Period 8 Initialization and Femtobarn Frontier | [`ARC-PUB-2026-PHYS02.pdf`](whitepapers/ARC-PUB-2026-PHYS02.pdf) | [10.5281/zenodo.22681286](https://doi.org/10.5281/zenodo.22681286) |
 
+## 📐 Integration Specifications & Contracts
+- [`specs/client-integration.md`](specs/client-integration.md) — **ARC-SPEC-2026-CLI-01**: Deterministic Safety Contract, Client Circuit Breakers, & POSIX Exit Codes.
+
 ## System Invariants
 - **Operational Cost**: `C_ops = 0`
 - **Data Egress Sensitivity**: `Data_Egress_Sensitive = 0`
