@@ -1,6 +1,6 @@
 // tests/validateLifecycleInvariants.ts
 // Bound strictly to Target Master Hash: A-77-DELTA-SHIELD-LOCKED
-// Verified Framework: v1.3.0-exec Release Compliance
+// Verified Framework: v1.3.1-exec Release Compliance
 // Invariant Track: REG-5D-01 (Vector Lineage & Memory Protection)
 
 export enum PosixExitCode {
