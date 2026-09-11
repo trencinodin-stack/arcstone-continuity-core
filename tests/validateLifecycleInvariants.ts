@@ -3,6 +3,8 @@
 // Verified Framework: v1.3.1-exec Release Compliance
 // Invariant Track: REG-5D-01 (Vector Lineage & Memory Protection)
 
+import assert from 'node:assert/strict';
+
 export enum PosixExitCode {
     PASS = 0,
     FREEZE_PWC = 10,
@@ -28,8 +30,13 @@ export class LifecycleInvariantVerifier {
      */
     public static verifyVectorLineage(vector: IStateVector5D): PosixExitCode {
         // Enforce structural non-null integrity across the 5 canonical variables
-
-        if (vector.T === undefined || vector.AE === undefined || vector.S === undefined || vector.I === undefined || vector.C === undefined) {
+        if (
+            vector.T === undefined ||
+            vector.AE === undefined ||
+            vector.S === undefined ||
+            vector.I === undefined ||
+            vector.C === undefined
+        ) {
             return PosixExitCode.LEDGER_CORRUPTION;
         }
 
@@ -47,9 +54,33 @@ export class LifecycleInvariantVerifier {
     }
 }
 
-// Simple automated runner logic simulation for CI engine
-const sampleValidVector: IStateVector5D = { T: 1024, AE: 42, S: 2048, I: 1, C: 0 };
-const sampleCorruptVector: IStateVector5D = { T: 1025, AE: 42, S: 5000, I: 1, C: 0 };
+// Executable conformance assertions
+const sampleValidVector: IStateVector5D = {
+    T: 1024,
+    AE: 42,
+    S: 2048,
+    I: 1,
+    C: 0
+};
 
-console.log(`[REG-5D-01 TEST] Valid Vector Verification: ${LifecycleInvariantVerifier.verifyVectorLineage(sampleValidVector) === PosixExitCode.PASS ? 'PASS' : 'FAIL'}`);
-console.log(`[REG-5D-01 TEST] Out-of-Bounds Buffer Isolation: ${LifecycleInvariantVerifier.verifyVectorLineage(sampleCorruptVector) === PosixExitCode.LEDGER_CORRUPTION ? 'PASS' : 'FAIL'}`);
+const sampleCorruptVector: IStateVector5D = {
+    T: 1025,
+    AE: 42,
+    S: 5000,
+    I: 1,
+    C: 0
+};
+
+assert.equal(
+    LifecycleInvariantVerifier.verifyVectorLineage(sampleValidVector),
+    PosixExitCode.PASS,
+    'REG-5D-01: valid vector must resolve to PASS'
+);
+
+assert.equal(
+    LifecycleInvariantVerifier.verifyVectorLineage(sampleCorruptVector),
+    PosixExitCode.LEDGER_CORRUPTION,
+    'REG-5D-01: out-of-bounds buffer must resolve to LEDGER_CORRUPTION'
+);
+
+console.log('[REG-5D-01 TEST] All lifecycle invariant assertions: PASS');
