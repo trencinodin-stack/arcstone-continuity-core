@@ -15,13 +15,14 @@ This repository represents the open-core reference baseline for Subsystem 9 exec
 ## Architecture Overview
 This open-core repository houses the bare-metal validation primitives and Subsystem 9 specifications required to drive deterministic, fail-closed runtime security environments.
 
-```text
-src/
-├── lib.rs          -> Hardware envelope declarations (S_max <= 4096B)
-├── lifecycle.rs    -> Temporal ceiling pre-filtering (tau_override <= 11.99ms)
-└── lattice.rs      -> 5-Tier Poset Dominance Lattice Enforcement
-Scientific & Architectural Basis
-This repository forms the executable Subsystem 9 membrane of the Arcstone Computational Spine (ACS). Its operational constraints are derived from a 12-part DOI-archived research suite covering deterministic state reconstruction, local execution, and temporal clamps:
+18  ```text
+19  src/
+20  ├── lib.rs          -> Hardware envelope declarations (S_max <= 4096B)
+21  ├── lifecycle.rs    -> Temporal ceiling pre-filtering (tau_override <= 11.99ms)
+22  └── lattice.rs      -> 5-Tier Poset Dominance Lattice Enforcement
+23  ```
+24  
+25  ## Scientific & Architectural Basis
 
 WP001 (Master Anchor): Baseline & eBPF Kernel Protection (10.5281/zenodo.22665852)
 
