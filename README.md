@@ -2,7 +2,7 @@ Markdown
 # Arcstone Open-Core Substrate Membrane (`arcstone-continuity-core`)
 
 ## Operational Parameters
-* **System Baseline Release Tag:** `v1.3.0-exec`
+* **System Baseline Release Tag:** `v1.3.1-exec`
 * **Target Master Hash Anchor:** `A-77-DELTA-SHIELD-LOCKED`
 * **Status:** FROZEN (ACTIVE)
 
