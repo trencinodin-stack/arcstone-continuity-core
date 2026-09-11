@@ -38,4 +38,4 @@ The live `arcstone-continuity-core` crate (v1.3.1) is a zero-dependency, `#![no_
 * **Canonical Specification Index:** See `docs/README.md` for full fleet listing.
 
 ### Invariant Posture
-All operations comply with the zero operational drag mandate (**C_ops = 0**). Academic staging matrices, private analytical sets, and vaulted Path C defense implementations are strictly excluded from this open distribution layer.
+All operations comply with the zero operational drag mandate (**Cₒₚₛ = 0**). Academic staging matrices, private analytical sets, and vaulted Path C defense implementations are strictly excluded from this open distribution layer.
