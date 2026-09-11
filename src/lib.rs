@@ -1,4 +1,5 @@
 #![no_std]
+#![deny(unsafe_code)]
 
 pub mod lattice;
 pub mod lifecycle;
