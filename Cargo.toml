@@ -1,0 +1,13 @@
+[package]
+name = "arcstone-continuity-core"
+version = "1.3.1"
+edition = "2021"
+authors = ["Arcstone Core Team"]
+description = "Subsystem 9 execution membrane reference invariants"
+
+[lib]
+name = "arcstone_continuity_core"
+path = "src/lib.rs"
+
+[dependencies]
+# Zero dependencies - #![no_std] compliant
