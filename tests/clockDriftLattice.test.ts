@@ -2,6 +2,7 @@
 // Bound strictly to Target Master Hash: A-77-DELTA-SHIELD-LOCKED
 // Invariant Track: REG-5D-02 (Queue Saturation Ceiling & Temporal Drift)
 
+import assert from 'node:assert/strict';
 import { LifecycleInvariantVerifier, PosixExitCode } from './validateLifecycleInvariants';
 
 export class ClockDriftLatticeEvaluator {
@@ -26,11 +27,27 @@ export class ClockDriftLatticeEvaluator {
     }
 }
 
-// Emulated assertions for verification reporting
+// Executable conformance assertions
 const nominalStatus = ClockDriftLatticeEvaluator.evaluateTemporalLattice(2.4, 0.45);
 const queueSaturatedStatus = ClockDriftLatticeEvaluator.evaluateTemporalLattice(1.1, 0.98);
 const clockBreachStatus = ClockDriftLatticeEvaluator.evaluateTemporalLattice(14.2, 0.50);
 
-console.log(`[REG-5D-02 TEST] Nominal Execution State Check: ${nominalStatus === PosixExitCode.PASS ? 'PASS' : 'FAIL'}`);
-console.log(`[REG-5D-02 TEST] Load Shedding Engine Intercept: ${queueSaturatedStatus === PosixExitCode.REFUSAL ? 'PASS' : 'FAIL'}`);
-console.log(`[REG-5D-02 TEST] Microarchitectural Clock Drift Stasis: ${clockBreachStatus === PosixExitCode.FREEZE_PWC ? 'PASS' : 'FAIL'}`);
+assert.equal(
+    nominalStatus,
+    PosixExitCode.PASS,
+    'REG-5D-02: nominal execution state must resolve to PASS'
+);
+
+assert.equal(
+    queueSaturatedStatus,
+    PosixExitCode.REFUSAL,
+    'REG-5D-02: queue saturation must resolve to REFUSAL'
+);
+
+assert.equal(
+    clockBreachStatus,
+    PosixExitCode.FREEZE_PWC,
+    'REG-5D-02: temporal breach must resolve to FREEZE_PWC'
+);
+
+console.log('[REG-5D-02 TEST] All temporal lattice assertions: PASS');
