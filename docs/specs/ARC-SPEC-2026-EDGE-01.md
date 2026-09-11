@@ -1,7 +1,7 @@
 # ARC-SPEC-2026-EDGE-01: Short-Circuit Perimeter Pre-Filtering Pipeline Specification
 
 **Spec ID:** ARC-SPEC-2026-EDGE-01  
-**Version:** v1.3.0-exec (REV-02) | **STATUS: ACTIVE (FROZEN)**  
+**Version:** v1.3.1-exec (REV-02) | **STATUS: ACTIVE (FROZEN)**  
 **Target Master Hash Anchor:** `A-77-DELTA-SHIELD-LOCKED`  
 
 ---
