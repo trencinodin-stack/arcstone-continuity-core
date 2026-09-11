@@ -35,4 +35,4 @@ WP008 (Wi-Fi 7 MLO): Sub-12ms Transport Boundaries & Latency Clamps (10.5281/zen
 Canonical Specification Index: See docs/README.md for full fleet listing.
 
 Invariant Posture
-All operations comply with the zero operational drag mandate (Cops = 0). Academic staging matrices, private analytical sets, and vaulted Path C defense implementations are strictly excluded from this open distribution layer.
+All operations comply with the zero operational drag mandate (Cₒₚₛ = 0). Academic staging matrices, private analytical sets, and vaulted Path C defense implementations are strictly excluded from this open distribution layer.
