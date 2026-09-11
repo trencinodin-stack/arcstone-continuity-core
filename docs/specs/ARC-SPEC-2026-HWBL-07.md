@@ -1,7 +1,7 @@
 # ARC-SPEC-2026-HWBL-07: Hardware Baseline & Dual-Baseline Topology
 
 **Spec ID:** ARC-SPEC-2026-HWBL-07  
-**Version:** v1.3.0-exec (REV-02) | **STATUS: ACTIVE (FROZEN)**  
+**Version:** v1.3.1-exec (REV-02) | **STATUS: ACTIVE (FROZEN)**  
 **Target Master Hash Anchor:** `A-77-DELTA-SHIELD-LOCKED`  
 **Effective Timestamp:** Sep 02, 2026  
 
