@@ -4,7 +4,7 @@
 use crate::PosixSignal;
 
 /// Enforces the Order-Theoretic 5-Tier Dominance Lattice Laws:
-/// FAIL (POSIX 40) ≻ FREEZE (POSIX 10) ≻ PWC (POSIX 10) ≻ REFUSAL (POSIX 32) ≻ PASS (POSIX 0)
+/// SECURITY_BREACH (5) > FREEZE (4) > REFUSAL (3) > LEDGER_CORRUPTION (2) > PASS (1)
 pub struct DominanceLattice;
 
 impl DominanceLattice {
@@ -18,11 +18,11 @@ impl DominanceLattice {
 
     fn get_rank(signal: PosixSignal) -> u8 {
         match signal {
-            PosixSignal::SecurityBreach => 5,   // Dominates all other signals
-            PosixSignal::Freeze => 4,           // Clock/Temporal stasis holds
-            PosixSignal::Refusal => 3,          // Queue saturation floors
-            PosixSignal::LedgerCorruption => 2, // Expansion bounds structural rejects
-            PosixSignal::Pass => 1,             // Baseline nominal clearance
+            PosixSignal::SecurityBreach => 5, // Dominates all other signals
+            PosixSignal::Freeze => 4,         // Clock/Temporal stasis holds
+            PosixSignal::Refusal => 3,        // Queue saturation floors
+            PosixSignal::LedgerCorruption => 2,// Expansion bounds structural rejects
+            PosixSignal::Pass => 1,           // Baseline nominal clearance
         }
     }
 }
