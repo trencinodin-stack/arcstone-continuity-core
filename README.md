@@ -1,5 +1,3 @@
-Yes, updating your main README.md with this text is a great move. It aligns the open-core repository's documentation with the live code state, clarifies the crate's exact boundary, and adopts the precise, defensible positioning validated by the audits.Here is the finalized, polished markdown block for your README.md. It retains your structural layout while adding a brief Crate Verification & Status section that incorporates Grok's validated technical summary:Markdown# Arcstone Open-Core Substrate Membrane (`arcstone-continuity-core`)
-
 ## Operational Parameters
 * **System Baseline Release Tag:** `v1.3.1-exec`
 * **Target Master Hash Anchor:** `A-77-DELTA-SHIELD-LOCKED`
