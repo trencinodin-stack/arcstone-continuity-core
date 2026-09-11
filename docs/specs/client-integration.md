@@ -101,7 +101,7 @@ export class DeterministicSafetyGatewayClient {
                         );
 
                     case PosixSignal.SECURITY_BREACH:
-                        // POSIX 40: Critical temporal breach or adversarial pattern trap.
+                        // POSIX 40: Sovereign Constancy breach or adversarial security condition.
                         this.enforceCircuitBreaker(
                             `Security breach short-circuit encountered.`
                         );
