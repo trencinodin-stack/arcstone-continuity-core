@@ -12,8 +12,8 @@ pub const TAU_OVERRIDE_US: u64 = 11_990;
 pub struct Micros(pub u64);
 
 /// POSIX-mapped 5-tier dominance status lattice.
-/// Order is defined by declaration rank (Pass -> LedgerCorruption -> Refusal -> Freeze -> SecurityBreach).
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+/// Canonical dominance is defined by `DominanceLattice`, not by raw numeric codes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[repr(u8)]
 pub enum PosixSignal {
     Pass = 0x00,
