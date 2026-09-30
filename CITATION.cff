@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+authors:
+  - family-names: "Tuohy"
+    given-names: "Jesse"
+    orcid: "https://orcid.org/0009-0008-4661-1540"
+title: "arcstone-continuity-core: Lean Open-Core Repository Baseline for Subsystem 9 Execution Membranes"
+version: "v1.3.1-exec"
+date-released: "2026-09-25"
+repository-code: "https://github.com/trencinodin-stack/arcstone-continuity-core"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22665852"
+    description: "Primary Master Suite Anchor DOI"
