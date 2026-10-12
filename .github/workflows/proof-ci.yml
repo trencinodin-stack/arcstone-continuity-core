@@ -1,0 +1,35 @@
+name: DAE Formal Proof Verification
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  coq-formal-verification:
+    name: Verify Coq Invariants (dae_invariants.v)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Coq Compiler
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y coq coq-theories
+
+      - name: Verify Formal Coq Invariants
+        run: |
+          echo "Compiling and checking dae_invariants.v..."
+          coqc docs/academic/dae_invariants.v
+
+      - name: Audit Proof Completeness (Zero Admitted)
+        run: |
+          if grep -q "Admitted." docs/academic/dae_invariants.v; then
+            echo "::error ::UNPROVED STATEMENTS DETECTED: 'Admitted' keyword found in dae_invariants.v"
+            exit 1
+          else
+            echo "SUCCESS: All Coq theorems fully proved with 0 Admitted statements (P_err = 0)."
+          fi
