@@ -1,0 +1,23 @@
+{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"title": "DAE_Pedagogy_Grounding_Manifest",
+"version": "1.0.0-EDU04",
+"governing_invariants": {
+"operational_drag": "C_ops == 0",
+"worst_case_execution_time_ms": 11.99,
+"heap_memory_bytes": 0,
+"axiomatic_law": "Existence != Permission"
+},
+"poset_dominance_lattice": [
+{ "rank": 1, "state": "FAIL", "posix_code": 40, "action": "Trigger
+Hardware NMI / Full Halt" },
+{ "rank": 2, "state": "FREEZE", "posix_code": 10, "action": "Hold
+Step Clocks / Lock State" },
+{ "rank": 3, "state": "PWC", "posix_code": 12, "action": "Pending
+Worker Clearance (0.80 <= rho < 0.95)" },
+{ "rank": 4, "state": "REFUSAL", "posix_code": 32, "action": "Wire
+Speed eBPF XDP_DROP (rho >= 0.95)" },
+{ "rank": 5, "state": "PASS", "posix_code": 0, "action": "
+Admissible Zero-Copy Register Execution" }
+]
+}
