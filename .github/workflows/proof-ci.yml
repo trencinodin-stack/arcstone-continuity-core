@@ -23,11 +23,11 @@ jobs:
       - name: Verify Formal Coq Invariants
         run: |
           echo "Compiling and checking dae_invariants.v..."
-          coqc docs/academic/dae_invariants.v
+          coqc docs/academic/proofs/dae_invariants.v
 
       - name: Audit Proof Completeness (Zero Admitted)
         run: |
-          if grep -q "Admitted." docs/academic/dae_invariants.v; then
+          if grep -q "Admitted." docs/academic/proofs/dae_invariants.v; then
             echo "::error ::UNPROVED STATEMENTS DETECTED: 'Admitted' keyword found in dae_invariants.v"
             exit 1
           else
