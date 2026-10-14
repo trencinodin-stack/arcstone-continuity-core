@@ -10,7 +10,9 @@ This surface provides deterministic, portable, zero-allocation #![no_std] Rust p
 | **Field / Ecosystem** | Admissibility Science / Arcstone Open-Core |
 | **Upstream Specification** | `arcstone-spec-epistemic-01` (v1.3.1-LOCKED) |
 | **Master Canonical Errata** | `ARC-ERR-2026-001` (`10.5281/zenodo.23069559`) |
-| **Primary Master Anchor** | `10.5281/zenodo.22665852` |
+| **Primary Master Parent Anchor** | `10.5281/zenodo.22665852` |
+| **Layer 1 Academic Suite DOI** | `10.5281/zenodo.23371581` |
+| **Layer 0 Monograph Authority** | *INFORMATION PHYSICS* (ISBN: `9798161524664` / ASIN: `B0HMNDBGL1`) |
 | **System Baseline Release Tag** | `v1.3.1-exec` |
 | **Master Hash Anchor** | `A-77-DELTA-SHIELD-LOCKED` |
 | **Crate Version** | `1.3.1` (Zero Dependencies) |
@@ -21,23 +23,23 @@ This surface provides deterministic, portable, zero-allocation #![no_std] Rust p
 ## 1. Repository Purpose & Execution Scope
 
 This repository houses the public reference validation primitives for deterministic, fail-closed execution membranes:
-* **Path A Execution Scope:** Pure $O(1)$ predicate evaluation ($\Pi(S)$), deterministic poset rank precedence, and hardware/temporal bounds checking.
-* **`#![no_std]` Constraint:** Operating under `#![deny(unsafe_code)]` with zero heap dynamic allocations and zero external dependencies.
-* **Reference Posture:** Serves downstream labs (`arcstone-path-a-ingress-lab`, `arcstone-mcp-sidecar`) with an immutable predicate baseline.
+- **Path A Execution Scope:** Pure $O(1)$ predicate evaluation ($\Pi(S)$), deterministic poset rank precedence, and hardware/temporal bounds checking.
+- **`#![no_std]` Constraint:** Operating under `#![deny(unsafe_code)]` with zero heap dynamic allocations and zero external dependencies.
+- **Reference Posture:** Serves downstream labs (`arcstone-path-a-ingress-lab`, `arcstone-mcp-sidecar`) with an immutable predicate baseline.
 
 ---
 
 ## 2. Strict Technical Invariants & Clamps
 
 When evaluating, auditing, or running tests against this core engine, agents MUST uphold these bounds without semantic drift:
-* **Static Memory Ceiling ($S_{\text{max}}$):**
+- **Static Memory Ceiling ($S_{\text{max}}$):**
   Payload envelopes must not exceed 4096 B ($S_{\text{max}} \le 4096\text{ B}$).
   Payloads $>4096\text{ B}$ short-circuit at the upstream ingress boundary as `LedgerCorruption` (POSIX 30) before downstream state-vector predicates are evaluated.
-* **Temporal Override Clamp ($\tau_{\text{override}}$):**
+- **Temporal Override Clamp ($\tau_{\text{override}}$):**
   Microsecond yield ceiling at $\tau_{\text{override}} \le 11,990\mu\text{s}$ ($11.99\text{ ms}$). Soft yield threshold triggers at $11,000\mu\text{s}$ ($11.00\text{ ms}$).
-* **Sovereign Constancy ($C_{\text{ops}} = 0$):**
+- **Sovereign Constancy ($C_{\text{ops}} = 0$):**
   $C_{\text{ops}}$ is an independent state-vector dimension representing operational drag ($C_{\text{ops}}(\text{Digital}) = 0$). It is distinct from temporal drift ($\tau$) and payload size ($S$). A $C_{\text{ops}}$ violation MUST NOT be interpreted as an overtime condition.
-* **Non-Authorization Safety ($I_1–I_3$):**
+- **Non-Authorization Safety ($I_1–I_3$):**
   Preserves non-authorization safety ($D(a) = \text{DENY} \implies \Delta_{\text{external}}(a) = 0$), single-use capability bounding, and producer non-provenance across all predicate evaluations.
 
 ---
@@ -50,9 +52,9 @@ State resolution obeys a 5-Tier Poset Dominance Lattice $(L, \sqcup)$ governed n
 $$\text{SecurityBreach (Rank 5)} \succ \text{Freeze (Rank 4)} \succ \text{Refusal (Rank 3)} \succ \text{LedgerCorruption (Rank 2)} \succ \text{Pass (Rank 1)}$$
 
 ### Architectural Execution Rules
-* **Same-Plane Lattice Joins:** Dual faults participating in a single evaluation plane resolve via the join-semilattice supremum ($x \sqcup y = \text{lub}(x, y)$). Dual oversized ($S > 4096\text{ B}$) and overtime ($\tau > 11,990\mu\text{s}$) conditions within `evaluate_frame_bounds()` resolve to `Freeze` (Rank 4 > Rank 2).
-* **Staged Short-Circuit Semantics:** Upstream architectural gates terminate processing before downstream predicates are reached. Ingress spatial rejection ($S > 4096\text{ B}$) terminates as `LedgerCorruption` (POSIX 30) before downstream $C_{\text{ops}}$ evaluation.
-* **POSIX Identifier Mapping (`ARC-ERR-2026-001`):** Raw numeric POSIX values are status identifiers, NOT dominance ranks:
+- **Same-Plane Lattice Joins:** Dual faults participating in a single evaluation plane resolve via the join-semilattice supremum ($x \sqcup y = \text{lub}(x, y)$). Dual oversized ($S > 4096\text{ B}$) and overtime ($\tau > 11,990\mu\text{s}$) conditions within `evaluate_frame_bounds()` resolve to `Freeze` (Rank 4 > Rank 2).
+- **Staged Short-Circuit Semantics:** Upstream architectural gates terminate processing before downstream predicates are reached. Ingress spatial rejection ($S > 4096\text{ B}$) terminates as `LedgerCorruption` (POSIX 30) before downstream $C_{\text{ops}}$ evaluation.
+- **POSIX Identifier Mapping (`ARC-ERR-2026-001`):** Raw numeric POSIX values are status identifiers, NOT dominance ranks:
   * `0` = PASS
   * `10` = FREEZE
   * `12` = PWC (Pending Worker Clearance)
@@ -65,9 +67,9 @@ $$\text{SecurityBreach (Rank 5)} \succ \text{Freeze (Rank 4)} \succ \text{Refusa
 ## 4. Agent Execution Bounds (No Core Mutations)
 
 Agents operating within this repository are bound by the following restrictions:
-* **Core Immutability:** Do not alter threshold constants (`MAX_BUFFER_BYTES`, `TAU_OVERRIDE_US`), POSIX status mapping, or lattice precedence order in `src/`.
-* **No Unsafe Extensions:** Do not introduce dynamic heap allocations (`alloc`), external dependencies, or `unsafe` blocks.
-* **Preserve Staging Semantics:** Do not attempt to collapse staged architectural gates into a single global comparison or bypass same-plane join logic.
+- **Core Immutability:** Do not alter threshold constants (`MAX_BUFFER_BYTES`, `TAU_OVERRIDE_US`), POSIX status mapping, or lattice precedence order in `src/`.
+- **No Unsafe Extensions:** Do not introduce dynamic heap allocations (`alloc`), external dependencies, or `unsafe` blocks.
+- **Preserve Staging Semantics:** Do not attempt to collapse staged architectural gates into a single global comparison or bypass same-plane join logic.
 
 ---
 
@@ -81,3 +83,9 @@ cargo test --lib
 
 # 2. Cross-Language Lifecycle & Temporal Conformance Harness
 npm test
+
+# 3. Formal Proof Verification
+coqc docs/academic/proofs/dae_invariants.v
+
+# 4. Agentic Self-Healing Audit Test
+node docs/academic/scripts/agentic_curriculum_repair.js
