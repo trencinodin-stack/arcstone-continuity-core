@@ -6,9 +6,15 @@ authors:
     orcid: "https://orcid.org/0009-0008-4661-1540"
 title: "arcstone-continuity-core: Lean Open-Core Repository Baseline for Subsystem 9 Execution Membranes"
 version: "v1.3.1-exec"
-date-released: "2026-09-25"
+date-released: "2026-10-14"
 repository-code: "https://github.com/trencinodin-stack/arcstone-continuity-core"
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.23371581"
+    description: "ARC-SPEC-2026-EDU-01..09: Deterministic Admissibility Engineering (DAE) Master Academic Suite"
+  - type: doi
     value: "10.5281/zenodo.22665852"
     description: "Primary Master Suite Anchor DOI"
+  - type: isbn
+    value: "9798161524664"
+    description: "Layer 0 Primary Authority Monograph (INFORMATION PHYSICS)"
