@@ -46,21 +46,21 @@ When evaluating, auditing, or running tests against this core engine, agents MUS
 
 ## 3. Order-Theoretic Lattice & Staging Boundaries
 
-State resolution obeys a 5-Tier Poset Dominance Lattice $(L, \sqcup)$ governed normatively by **`ARC-ERR-2026-001`**.
+State resolution obeys the canonical 6-Tier POSIX Dominance Lattice $(L, \sqcup)$ governed normatively by **`ARC-ERR-2026-001`**.
 
 ### Dominance Precedence Matrix
-$$\text{SecurityBreach (Rank 5)} \succ \text{Freeze (Rank 4)} \succ \text{Refusal (Rank 3)} \succ \text{LedgerCorruption (Rank 2)} \succ \text{Pass (Rank 1)}$$
+$$\text{SecurityBreach (40)} \succ \text{Refusal (32)} \succ \text{LedgerCorruption (30)} \succ \text{PWC (12)} \succ \text{Freeze (10)} \succ \text{Pass (0)}$$
 
 ### Architectural Execution Rules
-- **Same-Plane Lattice Joins:** Dual faults participating in a single evaluation plane resolve via the join-semilattice supremum ($x \sqcup y = \text{lub}(x, y)$). Dual oversized ($S > 4096\text{ B}$) and overtime ($\tau > 11,990\mu\text{s}$) conditions within `evaluate_frame_bounds()` resolve to `Freeze` (Rank 4 > Rank 2).
+- **Same-Plane Lattice Joins:** Dual faults participating in a single evaluation plane resolve via the join-semilattice supremum ($x \sqcup y = \text{lub}(x, y)$). Dual oversized ($S > 4096\text{ B}$) and overtime ($\tau > 11,990\mu\text{s}$) conditions within `evaluate_frame_bounds()` resolve via the higher dominance rank.
 - **Staged Short-Circuit Semantics:** Upstream architectural gates terminate processing before downstream predicates are reached. Ingress spatial rejection ($S > 4096\text{ B}$) terminates as `LedgerCorruption` (POSIX 30) before downstream $C_{\text{ops}}$ evaluation.
 - **POSIX Identifier Mapping (`ARC-ERR-2026-001`):** Raw numeric POSIX values are status identifiers, NOT dominance ranks:
-  * `0` = PASS
-  * `10` = FREEZE
-  * `12` = PWC (Pending Worker Clearance)
-  * `30` = CORRUPT / LedgerCorruption
-  * `32` = REFUSAL
-  * `40` = BREACH / SecurityBreach
+  * `0` = PASS (Admissible Execution)
+  * `10` = FREEZE (Temporal Yield / Soft Clock Drift)
+  * `12` = PWC (Pending Worker Clearance — Canonical Lock)
+  * `30` = CORRUPT / LedgerCorruption (Schema / Payload Fault)
+  * `32` = REFUSAL (Policy Envelope Breach)
+  * `40` = BREACH / SecurityBreach (TCB Breach / Buffer Overrun)
 
 ---
 
