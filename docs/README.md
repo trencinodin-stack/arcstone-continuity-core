@@ -30,16 +30,16 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 - **Coq Module (`DAEInvariants`):** [`academic/proofs/dae_invariants.v`](academic/proofs/dae_invariants.v)
   - Verified via `coqc` with 0 `Admitted.` statements in CI.
   - Formally proves:
-    - Non-Authorization Safety: `Theorem invariant_non_authorization_safety` ($\forall s, \text{apply\_action}(\text{DENY}, s) = 0$).
-    - Payload Envelope Clamp: `Theorem invariant_payload_envelope_safety` ($s > S_{\max} \implies \text{apply\_action}(d, s) = 0$).
-    - Sovereign Constancy: `Theorem invariant_sovereign_constancy` ($C_{\text{ops}} = 0$).
-    - Poset Dominance Monotonicity: `Theorem invariant_poset_dominance_monotonic` ($\text{BREACH} > \text{FREEZE} > \text{PWC} > \text{REFUSAL} > \text{PASS}$).
+    - Non-Authorization Safety: `Theorem invariant_non_authorization_safety` ($\forall s,\; \mathrm{apply\_action}(\mathrm{DENY}, s) = 0$).
+    - Payload Envelope Clamp: `Theorem invariant_payload_envelope_safety` ($s > S_{\max} \implies \mathrm{apply\_action}(d, s) = 0$).
+    - Sovereign Constancy: `Theorem invariant_sovereign_constancy` ($C_{\mathrm{ops}} = 0$).
+    - Poset Dominance Monotonicity: `Theorem invariant_poset_dominance_monotonic` ($\mathrm{BREACH} > \mathrm{FREEZE} > \mathrm{PWC} > \mathrm{REFUSAL} > \mathrm{PASS}$).
 
 - **Zero-Knowledge Circuit (`DAEVerifier`):** [`academic/zk/dae_verifier.circom`](academic/zk/dae_verifier.circom)
   - Pragma `circom 2.1.6`, compiling via `circom` and verifiable with `snarkjs` (Groth16).
   - Private Inputs: `execution_time_us`, `heap_bytes`, `poset_code`.
   - Public Inputs: `expected_poset_code`.
-  - Enforces `LessEqThan(32)` at 11,990 $\mu\text{s}$ ($\tau_{\text{override}} \le 11.99\text{ ms}$), `IsZero()` on `heap_bytes` ($M_{\text{alloc}} = 0\text{ B}$), and `IsEqual()` on poset codes.
+  - Enforces `LessEqThan(32)` at 11,990 $\mu\mathrm{s}$ ($\tau_{\mathrm{override}} \le 11.99\text{ ms}$), `IsZero()` on `heap_bytes` ($M_{\mathrm{alloc}} = 0\text{ B}$), and `IsEqual()` on poset codes.
 
 - **Pedagogy Manifest & Self-Healing Engines:**
   - Machine Grounding Manifest: [`academic/schema/dae_pedagogy_v1.json`](academic/schema/dae_pedagogy_v1.json)
