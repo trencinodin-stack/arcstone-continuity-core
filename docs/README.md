@@ -40,6 +40,7 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
   - Pragma `circom 2.1.6`, compiling via `circom` and verifiable with `snarkjs` (Groth16).
   - Private Inputs: `execution_time_us`, `heap_bytes`, `poset_code`.
   - Public Inputs: `expected_poset_code`.
+  - Output Signal: `is_admissible` (constrained to `is_admissible === 1`).
   - Enforces `LessEqThan(32)` at 11,990 $\mu\mathrm{s}$ ($\tau_{\mathrm{override}} \le 11.99\text{ ms}$), `IsZero()` on `heap_bytes` ($M_{\mathrm{alloc}} = 0\text{ B}$), and `IsEqual()` on poset codes.
 
 - **Pedagogy Manifest & Self-Healing Engines:**
