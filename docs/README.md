@@ -13,7 +13,8 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 | Ref Code | Title / Topic | Local PDF |
 | :--- | :--- | :--- |
 | **INDEX** | Master Architectural Index: Deterministic Admissibility Engineering | [`academic/00_Master_Architectural_Index_DAE.pdf`](academic/00_Master_Architectural_Index_DAE.pdf) |
-| **ERR001** | Master Canonical Errata, Disambiguation & Refinement Protocol | [`academic/ARC_ERR_2026_001__Master_Canonical_Errata__Disambiguation___Refinement_Protocol.pdf`](academic/ARC_ERR_2026_001__Master_Canonical_Errata__Disambiguation___Refinement_Protocol.pdf) |
+| **SUITE** | Complete Master Specification Suite (Unified DAE Curriculum) | [`academic/DAE_Complete_Master_Specification_Suite.pdf`](academic/DAE_Complete_Master_Specification_Suite.pdf) |
+| **ERR001** | Master Canonical Errata, Disambiguation & Refinement Protocol | [`academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf`](academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf) |
 | **EDU01** | Foundations & Poset Lattice Algebra | [`academic/ARC_SPEC_2026_EDU_01.pdf`](academic/ARC_SPEC_2026_EDU_01.pdf) |
 | **EDU02** | Bare-Metal Laboratory Harness Suite (`LAB-XDP-01`, `LAB-HIL-03`) | [`academic/ARC_SPEC_2026_EDU_02.pdf`](academic/ARC_SPEC_2026_EDU_02.pdf) |
 | **EDU03** | Industrial Accreditation & ABET (SO 1-7) | [`academic/ARC_SPEC_2026_EDU_03.pdf`](academic/ARC_SPEC_2026_EDU_03.pdf) |
