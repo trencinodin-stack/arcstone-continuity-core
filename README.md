@@ -34,7 +34,7 @@ Path A is a downstream reference surface of the broader Arcstone architecture; i
 
 The executable surface is intentionally restricted to portable, deterministic `#![no_std]` Rust invariants and cross-language conformance material appropriate to Path A.
 
-- **Path A Scope:** Pure $O(1)$ predicate evaluation ($\Pi(S)$), deterministic poset rank precedence, and temporal/memory bounds checking.
+- **Path A Scope:** Pure O(1) predicate evaluation (Π(S)), deterministic poset rank precedence, and temporal/memory bounds checking.
 
 - **Broader Architecture Boundary:** Arcstone specifications and whitepapers may describe additional enforcement stages, hardware realizations, formal-verification environments, private components, or governed deployment pathways outside this repository. Their inclusion in the public documentation corpus does not imply implementation or distribution by Path A.
 
