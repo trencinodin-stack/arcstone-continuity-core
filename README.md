@@ -7,8 +7,10 @@
 
 > 📌 **Normative Specification & Errata Notice (`ARC-ERR-2026-001`)**
 >
-> All runtime implementations and predicate evaluations in `arcstone-continuity-core` conform strictly to **[ARC-ERR-2026-001](https://doi.org/10.5281/zenodo.23069559)** (*Master Canonical Errata, Disambiguation & Refinement Protocol*).
+> Architectural invariants, boundary clamps, and exit signal allocations in this ecosystem are governed by **[ARC-ERR-2026-001](https://doi.org/10.5281/zenodo.23069559)** (*Master Canonical Errata, Disambiguation & Refinement Protocol*).
 >
+> The reference execution substrate in this repository is maintained as a **frozen Path A baseline (`v1.3.1-exec`)** demonstrating local deterministic bounds enforcement; cross-domain wire precedence and the canonical 6-tier operational poset are governed by ARC-ERR-2026-001 (see *Evolution, Provenance & Lattice Refinement Notice* below).
+> 
 > **Primary Suite Anchor:** [10.5281/zenodo.22665852](https://doi.org/10.5281/zenodo.22665852) | **Layer 1 Master Academic Suite DOI:** [10.5281/zenodo.23371581](https://doi.org/10.5281/zenodo.23371581)
 >
 > **Layer 0 Monograph Authority:** *INFORMATION PHYSICS* (ISBN: `9798161524664` / ASIN: [`B0HMNDBGL1`](https://www.amazon.com/dp/B0HMNDBGL1)) | **Master Hash:** `A-77-DELTA-SHIELD-LOCKED`
