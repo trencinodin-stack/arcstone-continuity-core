@@ -30,11 +30,14 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 
 - **Coq Module (`DAEInvariants`):** [`academic/proofs/dae_invariants.v`](academic/proofs/dae_invariants.v)
   - Verified via `coqc` with 0 `Admitted.` statements in CI.
-  - Formally proves:
+  - Formally proves baseline operational properties for the initial 5-state triage engine:
     - Non-Authorization Safety: `Theorem invariant_non_authorization_safety` ($\forall s,\; \mathrm{apply\_action}(\mathrm{DENY}, s) = 0$).
     - Payload Envelope Clamp: `Theorem invariant_payload_envelope_safety` ($s > S_{\max} \implies \mathrm{apply\_action}(d, s) = 0$).
     - Sovereign Constancy: `Theorem invariant_sovereign_constancy` ($C_{\mathrm{ops}} = 0$).
-    - Poset Dominance Monotonicity: `Theorem invariant_poset_dominance_monotonic` ($\mathrm{BREACH} > \mathrm{FREEZE} > \mathrm{PWC} > \mathrm{REFUSAL} > \mathrm{PASS}$).
+    - Baseline Poset Dominance Monotonicity: `Theorem invariant_poset_dominance_monotonic` ($\mathrm{BREACH} > \mathrm{FREEZE} > \mathrm{PWC} > \mathrm{REFUSAL} > \mathrm{PASS}$).
+  - > 📌 **Normative Proof & Historical Provenance Notice:**  
+    > The mechanized Coq proof (`dae_invariants.v`) formally verifies invariant preservation and monotonic short-circuit safety for the baseline 5-state operational triage engine.  
+    > For the canonical 6-tier operational poset ($\text{BREACH (40)} \succ \text{REFUSAL (32)} \succ \text{CORRUPT (30)} \succ \text{PWC (12)} \succ \text{FREEZE (10)} \succ \text{PASS (0)}$) and the covariant functor bridge $\Phi: L \to E$ isolating `POSIX 10 (FREEZE)` outside $\text{Im}(\Phi) = \{0, 12, 30, 32, 40\}$, refer to **ARC-ERR-2026-001** and the Functorial Order Dynamics Monograph ([DOI: 10.5281/zenodo.23525986](https://doi.org/10.5281/zenodo.23525986)).
 
 - **Zero-Knowledge Circuit (`DAEVerifier`):** [`academic/zk/dae_verifier.circom`](academic/zk/dae_verifier.circom)
   - Pragma `circom 2.1.6`, compiling via `circom` and verifiable with `snarkjs` (Groth16).
@@ -46,6 +49,7 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 - **Pedagogy Manifest & Self-Healing Engines:**
   - Machine Grounding Manifest: [`academic/schema/dae_pedagogy_v1.json`](academic/schema/dae_pedagogy_v1.json)
   - ACEP Repair Engine: [`academic/scripts/agentic_curriculum_repair.js`](academic/scripts/agentic_curriculum_repair.js)
+
 ---
 
 ## Canonical Whitepaper Fleet
