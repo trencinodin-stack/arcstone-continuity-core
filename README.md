@@ -99,6 +99,11 @@ This repository houses verified mechanical proofs, zero-knowledge constraint cir
 
 **Core Mechanized Theorem (`fail_dominance_short_circuit`):**
 
+> 📌 **Normative Proof & Historical Provenance Notice:**  
+> The mechanized Coq proof below (`docs/academic/proofs/dae_invariants.v`) formally verifies the monotonic short-circuit theorem (`fail_dominance_short_circuit`) for the baseline 5-state operational triage engine.  
+>  
+> For the canonical 6-tier operational poset ($40 \succ 32 \succ 30 \succ 12 \succ 10 \succ 0$) and the covariant functor bridge $\Phi: L \to E$ isolating `POSIX 10 (FREEZE)` outside $\text{Im}(\Phi) = \{0, 12, 30, 32, 40\}$, see **ARC-ERR-2026-001** (`docs/academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf`) and the Functorial Order Dynamics Monograph (Zenodo DOI: [10.5281/zenodo.23525986](https://doi.org/10.5281/zenodo.23525986)).
+
 ```coq
 Require Import Coq.Lists.List.
 Require Import Coq.Arith.PeanoNat.
