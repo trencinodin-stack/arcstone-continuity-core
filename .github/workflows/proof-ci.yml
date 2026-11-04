@@ -18,7 +18,7 @@ jobs:
       - name: Install Coq Compiler
         run: |
           sudo apt-get update
-          sudo apt-get install -y coq coq-theories
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends coq coq-theories
 
       - name: Verify Formal Coq Invariants
         run: |
