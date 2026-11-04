@@ -52,6 +52,19 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 
 ---
 
+## 🔗 Theoretical Framework & Invariant Lexicon Crosswalk
+
+This table maps the formal terms established in the **A-77-DELTA-SHIELD-LOCKED** research monograph (*"Beyond Social Assurance: Formal Invariants, the Regeneration Gap, and Closing the Specification Gap"*, Nov 4, 2026) directly to the governing specifications and executable artifacts below:
+
+| Formal Theoretical Term | Governing Specification | Concrete Implementation / Artifact | Enforced Invariant |
+| :--- | :--- | :--- | :--- |
+| **The Regeneration Gap** | [`ARC-SPEC-2026-EDU-01`](academic/ARC_SPEC_2026_EDU_01.pdf)<br>[`ARC-SPEC-2026-EDU-02`](academic/ARC_SPEC_2026_EDU_02.pdf) | `src/lifecycle.rs`<br>`substrate-ci.yml` | $\forall o, \sum \text{CommittedEffects}(o) \le 1$<br>$D(a) = \text{DENY} \implies \Delta_{\text{external}}(a) = 0$ |
+| **Verification-Cost Inversion (VCI)** | [`ARC-SPEC-2026-EDU-05`](academic/ARC_SPEC_2026_EDU_05.pdf)<br>[`ARC-SPEC-2026-EDU-07`](academic/ARC_SPEC_2026_EDU_07.pdf) | `academic/proofs/dae_invariants.v`<br>`academic/zk/dae_verifier.circom` | $C_{\mathrm{machine}} \ll C_{\mathrm{human}}$<br>$\mathrm{Assumptions}(T) \equiv \emptyset$ (`coqc` with 0 `Admitted`) |
+| **The Specification Gap** | [`ARC-ERR-2026-001`](academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf)<br>[`ARC-SPEC-2026-EDU-06`](academic/ARC_SPEC_2026_EDU_06.pdf) | POSIX 12 PWC Lock<br>Functorial Bridge $\Phi: L \to E$ | Order-Preserving Covariance<br>Actuator Torque $\to 0\text{ Nm}$ in $\le 11.99\text{ ms}$ |
+| **Epistemic Debt Containment** | [`ARC-SPEC-2026-EDU-04`](academic/ARC_SPEC_2026_EDU_04.pdf)<br>[`ARC-SPEC-2026-EDU-08`](academic/ARC_SPEC_2026_EDU_08.pdf) | `academic/schema/dae_pedagogy_v1.json`<br>`agentic_curriculum_repair.js` | Freeze on Generation Drift ($H_{\text{prompt}} = 0$, $\Delta P = 0$) |
+
+---
+
 ## Canonical Whitepaper Fleet
 
 | Ref Code | Title | Local PDF | Primary Zenodo DOI |
