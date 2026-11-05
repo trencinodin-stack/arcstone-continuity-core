@@ -12,6 +12,7 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 
 | Ref Code | Title / Topic | Local PDF |
 | :--- | :--- | :--- |
+|**KEYSTONE** | **Deterministic Admissibility Engineering: Mechanized Type Theory, Bare-Metal Clamps, and the Regeneration Gap** | [`academic/ARC-PUB-2026-DAE-01.pdf`](academic/ARC-PUB-2026-DAE-01.pdf)
 | **INDEX** | Master Architectural Index: Deterministic Admissibility Engineering | [`academic/00_Master_Architectural_Index_DAE.pdf`](academic/00_Master_Architectural_Index_DAE.pdf) |
 | **SUITE** | Complete Master Specification Suite (Unified DAE Curriculum) | [`academic/DAE_Complete_Master_Specification_Suite.pdf`](academic/DAE_Complete_Master_Specification_Suite.pdf) |
 | **ERR001** | Master Canonical Errata, Disambiguation & Refinement Protocol | [`academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf`](academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf) |
@@ -59,6 +60,7 @@ This table maps the formal terms established in the **A-77-DELTA-SHIELD-LOCKED**
 | Formal Theoretical Term | Governing Specification | Concrete Implementation / Artifact | Enforced Invariant |
 | :--- | :--- | :--- | :--- |
 | **The Regeneration Gap** | [`ARC-SPEC-2026-EDU-01`](academic/ARC_SPEC_2026_EDU_01.pdf)<br>[`ARC-SPEC-2026-EDU-02`](academic/ARC_SPEC_2026_EDU_02.pdf) | `src/lifecycle.rs`<br>`substrate-ci.yml` | $\forall o, \sum \text{CommittedEffects}(o) \le 1$<br>$D(a) = \text{DENY} \implies \Delta_{\text{external}}(a) = 0$ |
+| **Staged Convergence Architecture** | [`ARC-PUB-2026-DAE-01`](academic/ARC-PUB-2026-DAE-01.pdf) | `#![no_std]` Rust (Constrained Realization)<br>Lean 4 / Aeneas (Mechanized Refinement) | $C_{\mathrm{ops}} = 0$<br>Offline TCB Shrinkage in CI without Actuator Drag |
 | **Verification-Cost Inversion (VCI)** | [`ARC-SPEC-2026-EDU-05`](academic/ARC_SPEC_2026_EDU_05.pdf)<br>[`ARC-SPEC-2026-EDU-07`](academic/ARC_SPEC_2026_EDU_07.pdf) | `academic/proofs/dae_invariants.v`<br>`academic/zk/dae_verifier.circom` | $C_{\mathrm{machine}} \ll C_{\mathrm{human}}$<br>$\mathrm{Assumptions}(T) \equiv \emptyset$ (`coqc` with 0 `Admitted`) |
 | **The Specification Gap** | [`ARC-ERR-2026-001`](academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf)<br>[`ARC-SPEC-2026-EDU-06`](academic/ARC_SPEC_2026_EDU_06.pdf) | POSIX 12 PWC Lock<br>Functorial Bridge $\Phi: L \to E$ | Order-Preserving Covariance<br>Actuator Torque $\to 0\text{ Nm}$ in $\le 11.99\text{ ms}$ |
 | **Epistemic Debt Containment** | [`ARC-SPEC-2026-EDU-04`](academic/ARC_SPEC_2026_EDU_04.pdf)<br>[`ARC-SPEC-2026-EDU-08`](academic/ARC_SPEC_2026_EDU_08.pdf) | `academic/schema/dae_pedagogy_v1.json`<br>`agentic_curriculum_repair.js` | Freeze on Generation Drift ($H_{\text{prompt}} = 0$, $\Delta P = 0$) |
@@ -90,6 +92,8 @@ This table maps the formal terms established in the **A-77-DELTA-SHIELD-LOCKED**
 ---
 
 ## System Invariants
-- **Operational Cost**: `C_ops = 0`
+- **Operational Cost Floor**: `C_ops = 0`
+- **Memory Allocation Clamp**: `M_alloc = 0 B`
+- **Ingress Payload Envelope**: `S_max ≤ 4096 B`
 - **Data Egress Sensitivity**: `Data_Egress_Sensitive = 0`
-- **Latency Upper Bound**: `τ_override ≤ 11.99ms`
+- **Temporal Latency Ceiling**: `τ_override ≤ 11.99ms`
