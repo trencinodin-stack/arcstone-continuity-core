@@ -10,6 +10,9 @@ date-released: "2026-10-14"
 repository-code: "https://github.com/trencinodin-stack/arcstone-continuity-core"
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.23967282"
+    description: "ARC-PUB-2026-DAE-01: Master Keystone Monograph (Deterministic Admissibility Engineering)"
+  - type: doi
     value: "10.5281/zenodo.23371581"
     description: "ARC-SPEC-2026-EDU-01..09: Deterministic Admissibility Engineering (DAE) Master Academic Suite"
   - type: doi
@@ -18,3 +21,14 @@ identifiers:
   - type: isbn
     value: "9798161524664"
     description: "Layer 0 Primary Authority Monograph (INFORMATION PHYSICS)"
+references:
+  - type: article
+    title: "Deterministic Admissibility Engineering: Mechanized Type Theory, Bare-Metal Clamps, and the Regeneration Gap"
+    authors:
+      - family-names: "Tuohy"
+        given-names: "Jesse"
+        orcid: "https://orcid.org/0009-0008-4661-1540"
+    doi: "10.5281/zenodo.23967282"
+    identifiers:
+      - type: other
+        value: "ARC-PUB-2026-DAE-01"
