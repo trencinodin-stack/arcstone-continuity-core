@@ -1,0 +1,26 @@
+# Arcstone Continuity Core (`arcstone-continuity-core`)
+> Canonical Reference Substrate & Subsystem 9 Execution Invariants under Master Epistemic Anchor A-77-DELTA-SHIELD-LOCKED (v1.3.1-exec).
+> Operating Constraints: C_ops == 0 | tau_override <= 11.99ms | M_alloc == 0 | S_max <= 4096B
+
+## Core Architecture & Upstream Authority
+- Upstream Keystone: arcstone-spec-epistemic-01 (v1.3.1-LOCKED)
+- Canonical Field Root: https://admissibilityscience.com (/llms.txt, /AGENTS.md)
+- Master Canonical Errata: ARC-ERR-2026-001 (Zenodo DOI: 10.5281/zenodo.23069559)
+- Primary Keystone Monograph: 10.5281/zenodo.23967282 (ARC-PUB-2026-DAE-01)
+- Master Anchor Hash: A-77-DELTA-SHIELD-LOCKED
+
+## Canonical Source Invariants & Mechanical Proofs
+- Formal Coq Module: docs/academic/proofs/dae_invariants.v
+  - Theorem invariant_non_authorization_safety: D(a) = DENY => apply_action = 0 (Print Assumptions ≡ ∅)
+  - Theorem invariant_payload_envelope_safety: payload_size > S_max => apply_action = 0
+  - Theorem invariant_sovereign_constancy: C_ops = 0
+  - Theorem invariant_poset_dominance_monotonic: BREACH > FREEZE > PWC > REFUSAL > PASS
+  - Theorem fail_dominance_short_circuit: In FAIL states -> lattice_sup states = FAIL
+- Groth16 zk-SNARK Circuit: docs/academic/zk/dae_verifier.circom (R1CS temporal and heap constraints)
+- Bare-Metal Predicate: src/lifecycle.rs (evaluate_frame_bounds) and src/lattice.rs (#[no_std], zero-alloc)
+
+## Normative Governance & Lattice Evolution
+- Frozen Baseline Kernel (v1.3.1-exec): dae_invariants.v and src/lattice.rs are frozen historical prototypes proving local queue failure dominance with byte-level CI constancy.
+- Canonical Cross-Domain Lattice (E): Governed normatively by ARC-ERR-2026-001:
+  BREACH (POSIX 40) > REFUSAL (POSIX 32) > CORRUPT (POSIX 30) > PWC (POSIX 12) > FREEZE (POSIX 10) > PASS (POSIX 0).
+- FREEZE Isolation: POSIX 10 operates strictly outside Im(Phi) as an internal runtime scheduling yield (tau_override <= 11.99ms), not an external ingress classification.
