@@ -9,6 +9,13 @@
 - Primary Keystone Monograph: 10.5281/zenodo.23967282 (ARC-PUB-2026-DAE-01)
 - Master Anchor Hash: A-77-DELTA-SHIELD-LOCKED
 
+## Downstream Reference Deployments
+- Canonical Treasury Rails Reference Implementation: arcstone-treasury-bind (v0.1.0)
+  Repository: https://github.com/trencinodin-stack/arcstone-treasury-bind
+  Specification: ARC-SPEC-2026-BIND-01 (REV-11)
+  DOI: 10.5281/zenodo.24119501
+  Invariants: Zero-heap (M_alloc = 0), S_max <= 4096 B in non-cacheable TCM, 96-byte packed ExecutionPermit, closed 7-state reconciliation automaton, TOCTOU elimination under Federal Reserve SR 26-2 and OCC Bulletin 2026-13.
+
 ## Canonical Source Invariants & Mechanical Proofs
 - Formal Coq Module: docs/academic/proofs/dae_invariants.v
   - Theorem invariant_non_authorization_safety: D(a) = DENY => apply_action = 0 (Print Assumptions ≡ ∅)
