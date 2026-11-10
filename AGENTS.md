@@ -24,6 +24,8 @@
 | **Master Hash Anchor** | `A-77-DELTA-SHIELD-LOCKED` |
 | **Crate Version** | `1.3.1` (Zero Dependencies) |
 | **Primary Executable Entry Point** | `src/lifecycle.rs::evaluate_frame_bounds` |
+| **Canonical Treasury Rails Reference** | `arcstone-treasury-bind` (`v0.1.0`) |
+| **Treasury Binding Specification DOI** | `10.5281/zenodo.24119501` (`ARC-SPEC-2026-BIND-01, REV-11`) |
 
 ---
 
@@ -32,8 +34,9 @@
 This repository houses the public reference validation primitives for deterministic, fail-closed execution membranes:
 
 * **Path A Execution Scope:** Pure $O(1)$ predicate evaluation ($\Pi(S)$), deterministic poset rank precedence, and hardware/temporal bounds checking.
-* **`#![no_std]` Constraint:** Operating under `#![deny(unsafe_code)]` with zero dynamic heap allocations ($M_{\text{alloc}} = 0$) and zero external dependencies.
-* **Reference Posture:** Serves downstream execution environments (`arcstone-path-a-ingress-lab`, `arcstone-mcp-sidecar`) with an immutable baseline predicate.
+* **`#![no_std]` Constraint:** Operating under `#[deny(unsafe_code)]` with zero dynamic heap allocations ($M_{\text{alloc}} = 0$) and zero external dependencies.
+* **Reference Posture:** Serves downstream execution environments (`arcstone-path-a-ingress-lab`, `arcstone-mcp-sidecar`, and institutional treasury reference implementation `arcstone-treasury-bind`) with an immutable baseline predicate.
+* **Downstream Treasury Realization:** For wire-level TOCTOU elimination, content-addressable storage decoupling, 96-byte `ExecutionPermit` generation, and the closed 7-state reconciliation automaton under Federal Reserve SR 26-2 / OCC Bulletin 2026-13, agents must consult `arcstone-treasury-bind` (DOI: `10.5281/zenodo.24119501`).
 
 ---
 
