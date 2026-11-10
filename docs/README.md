@@ -12,7 +12,7 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 
 | Ref Code | Title / Topic | Local PDF |
 | :--- | :--- | :--- |
-|**KEYSTONE** | **Deterministic Admissibility Engineering: Mechanized Type Theory, Bare-Metal Clamps, and the Regeneration Gap** | [`academic/ARC-PUB-2026-DAE-01.pdf`](academic/ARC-PUB-2026-DAE-01.pdf)
+| **KEYSTONE** | **Deterministic Admissibility Engineering: Mechanized Type Theory, Bare-Metal Clamps, and the Regeneration Gap** | [`academic/ARC-PUB-2026-DAE-01.pdf`](academic/ARC-PUB-2026-DAE-01.pdf) |
 | **INDEX** | Master Architectural Index: Deterministic Admissibility Engineering | [`academic/00_Master_Architectural_Index_DAE.pdf`](academic/00_Master_Architectural_Index_DAE.pdf) |
 | **SUITE** | Complete Master Specification Suite (Unified DAE Curriculum) | [`academic/DAE_Complete_Master_Specification_Suite.pdf`](academic/DAE_Complete_Master_Specification_Suite.pdf) |
 | **ERR001** | Master Canonical Errata, Disambiguation & Refinement Protocol | [`academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf`](academic/ARC_ERR_2026_001__Master_Canonical_Errata___Disambiguation_Protocol.pdf) |
@@ -32,20 +32,22 @@ All primary academic artifacts, formal proofs, and ZK circuits reside in the [`a
 - **Coq Module (`DAEInvariants`):** [`academic/proofs/dae_invariants.v`](academic/proofs/dae_invariants.v)
   - Verified via `coqc` with 0 `Admitted.` statements in CI.
   - Formally proves baseline operational properties for the initial 5-state triage engine:
-    - Non-Authorization Safety: `Theorem invariant_non_authorization_safety` ($\forall s,\; \mathrm{apply\_action}(\mathrm{DENY}, s) = 0$).
-    - Payload Envelope Clamp: `Theorem invariant_payload_envelope_safety` ($s > S_{\max} \implies \mathrm{apply\_action}(d, s) = 0$).
-    - Sovereign Constancy: `Theorem invariant_sovereign_constancy` ($C_{\mathrm{ops}} = 0$).
-    - Baseline Poset Dominance Monotonicity: `Theorem invariant_poset_dominance_monotonic` ($\mathrm{BREACH} > \mathrm{FREEZE} > \mathrm{PWC} > \mathrm{REFUSAL} > \mathrm{PASS}$).
+    - State Priority Mapping: Discrete lattice rank encoding via `state_priority` over inductive `LatticeState` (`FAIL`, `FREEZE`, `PWC`, `REFUSAL`, `PASS`).
+    - Join-Semilattice Supremum (`lattice_sup`): Computes supremum over arbitrated state lists in $O(1)$ rank comparisons.
+    - Monotonic Short-Circuit Safety: `Theorem fail_dominance_short_circuit`:
+      $$\forall (\mathrm{states} : \text{list LatticeState}),\; \text{In FAIL states} \implies \mathrm{lattice\_sup}(\mathrm{states}) = \text{FAIL}$$
   - > 📌 **Normative Proof & Historical Provenance Notice:**  
-    > The mechanized Coq proof (`dae_invariants.v`) formally verifies invariant preservation and monotonic short-circuit safety for the baseline 5-state operational triage engine.  
-    > For the canonical 6-tier operational poset ($\text{BREACH (40)} \succ \text{REFUSAL (32)} \succ \text{CORRUPT (30)} \succ \text{PWC (12)} \succ \text{FREEZE (10)} \succ \text{PASS (0)}$) and the covariant functor bridge $\Phi: L \to E$ isolating `POSIX 10 (FREEZE)` outside $\text{Im}(\Phi) = \{0, 12, 30, 32, 40\}$, refer to **ARC-ERR-2026-001** and the Functorial Order Dynamics Monograph ([DOI: 10.5281/zenodo.23525986](https://doi.org/10.5281/zenodo.23525986)).
+    > The mechanized Coq proof (`dae_invariants.v`) formally verifies invariant preservation and monotonic short-circuit safety for the baseline 5-state operational triage engine[cite: 1].  
+    > For the canonical 6-tier operational poset ($\text{BREACH (40)} \succ \text{REFUSAL (32)} \succ \text{CORRUPT (30)} \succ \text{PWC (12)} \succ \text{FREEZE (10)} \succ \text{PASS (0)}$) and the covariant functor bridge $\Phi: L \to E$ isolating `POSIX 10 (FREEZE)` outside $\text{Im}(\Phi) = \{0, 12, 30, 32, 40\}$, refer to **ARC-ERR-2026-001** and the Functorial Order Dynamics Monograph ([DOI: 10.5281/zenodo.23525986](https://doi.org/10.5281/zenodo.23525986))[cite: 1].
 
-- **Zero-Knowledge Circuit (`DAEVerifier`):** [`academic/zk/dae_verifier.circom`](academic/zk/dae_verifier.circom)
-  - Pragma `circom 2.1.6`, compiling via `circom` and verifiable with `snarkjs` (Groth16).
-  - Private Inputs: `execution_time_us`, `heap_bytes`, `poset_code`.
-  - Public Inputs: `expected_poset_code`.
-  - Output Signal: `is_admissible` (constrained to `is_admissible === 1`).
-  - Enforces `LessEqThan(32)` at 11,990 $\mu\mathrm{s}$ ($\tau_{\mathrm{override}} \le 11.99\text{ ms}$), `IsZero()` on `heap_bytes` ($M_{\mathrm{alloc}} = 0\text{ B}$), and `IsEqual()` on poset codes.
+- **Zero-Knowledge Circuit (`DAEAdmissibilityVerifier`):** [`academic/zk/dae_verifier.circom`](academic/zk/dae_verifier.circom)
+  - Pragma `circom 2.1.6`, compiling via `circom` and verifiable with `snarkjs` (Groth16)[cite: 1].
+  - Public Inputs: `publicCommitmentHash`, `maxAllowedCycles`, `targetPosixCode`[cite: 1].
+  - Private Witness Inputs: `privateSourceCodeHash`, `privateMeasuredCycles`, `privateHeapAllocBytes`, `privateEvaluatedPosixCode`[cite: 1].
+  - Mechanized Constraints:
+    - Zero Dynamic Heap: `privateHeapAllocBytes === 0;` ($M_{\mathrm{alloc}} = 0\text{ B}$)[cite: 1].
+    - Latency Ceiling: `LessEqThan(64)` on `privateMeasuredCycles <= maxAllowedCycles` ($\tau_{\mathrm{override}} \le 11.99\text{ ms}$)[cite: 1].
+    - Poset Agreement: `privateEvaluatedPosixCode === targetPosixCode;`[cite: 1].
 
 - **Pedagogy Manifest & Self-Healing Engines:**
   - Machine Grounding Manifest: [`academic/schema/dae_pedagogy_v1.json`](academic/schema/dae_pedagogy_v1.json)
