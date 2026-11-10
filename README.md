@@ -62,6 +62,18 @@ The executable surface is intentionally restricted to portable, deterministic `#
 
 ---
 
+## 🏛 Downstream Canonical Reference Deployments
+
+While `arcstone-continuity-core` serves as the frozen reference substrate for general O(1) predicate evaluation (Π(S)) and poset lattice dominance, domain-specific implementations realize these invariants across institutional environments:
+
+### Arcstone Treasury Binding Protocol (`arcstone-treasury-bind`)
+- **Specification:** `ARC-SPEC-2026-BIND-01 (REV-11)`
+- **Permanent DOI:** [10.5281/zenodo.24119501](https://doi.org/10.5281/zenodo.24119501)
+- **Repository:** [`trencinodin-stack/arcstone-treasury-bind`](https://github.com/trencinodin-stack/arcstone-treasury-bind) (`v0.1.0`)
+- **Operational Profile:** Implements Time-of-Check to Time-of-Use (TOCTOU) elimination, zero-heap admission control ($M_{\mathrm{alloc}} = 0$), bounded $4096\text{ B}$ static intent staging in Tightly Coupled Memory (TCM), 96-byte packed binary `ExecutionPermit` generation, and a closed 7-state reconciliation automaton for institutional treasury rails under Federal Reserve SR 26-2 and OCC Bulletin 2026-13.
+
+---
+
 ## System Architecture & Module Structure
 
 This repository houses the public reference validation primitives, Subsystem 9 specifications, formal Coq verification proofs, and zero-knowledge circuits associated with deterministic, fail-closed execution environments.
