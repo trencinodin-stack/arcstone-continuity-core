@@ -10,9 +10,12 @@ This document establishes the canonical verification chain, external attestation
 - **Canonical Specification Root:** `https://admissibilityscience.com` (`/llms.txt`, `/AGENTS.md`)
 - **Primary Keystone Monograph DOI:** `10.5281/zenodo.23967282` (`ARC-PUB-2026-DAE-01`)
 - **Primary Master DOI:** `10.5281/zenodo.22665852`
+- **Treasury Rails Reference Spec DOI:** `10.5281/zenodo.24119501` (`ARC-SPEC-2026-BIND-01`)
+- **Domain Projection Paradigm DOI:** `10.5281/zenodo.24041851` (`ARC-SPEC-2026-DPP-01`)
 - **Academic Realization Suite DOI:** `10.5281/zenodo.23371581`
-- **Upstream Formal Verification Repo:** `trencinodin-stack/autodidactic-credential-sovereignty`
-- **Kernel Implementation Repo:** `trencinodin-stack/arcstone-continuity-core`
+- **Normative Errata Standard:** `ARC-ERR-2026-001` (Canonical 6-State Dominance Poset)
+- **Upstream Formal Verification Repos:** `trencinodin-stack/domain-projection-spec` & `trencinodin-stack/autodidactic-credential-sovereignty`
+- **Kernel Implementation Repos:** `trencinodin-stack/arcstone-continuity-core` & `trencinodin-stack/arcstone-treasury-bind`
 
 ---
 
@@ -22,10 +25,10 @@ The codebase implements the 5-tier ACS correspondence and Staged Convergence mod
 
 | Tier | Component | Mechanized Invariant / Constraint | Status |
 | :--- | :--- | :--- | :--- |
-| **ACS-4** | Coq / CIC (`dae_invariants.v`) | Closed global context (`Print Assumptions ≡ ∅`) | Validated |
+| **ACS-4** | Coq / CIC (`dae_invariants.v`, `Invariants.v`, `Projection.v`) | Closed global context (`Print Assumptions ≡ ∅`) | Validated |
 | **ACS-3** | Lean 4 / Aeneas (Mechanized Refinement) | Offline LLBC translation; $C_{\mathrm{ops}} = 0$; Zero proof-repair runtime drag | Validated |
-| **Bridge** | Functorial Mapping | Monotonic order-preserving functor ($\Phi : L \to E$) | Formulated |
-| **ACS-2** | Bare-Metal Rust Membrane (Constrained Realization) | `#[no_std]`, `M_alloc = 0`, `S_max ≤ 4096 B`, `τ_override ≤ 11.99 ms` | Enforced |
+| **Bridge** | Functorial Mapping | Monotonic order-preserving functor ($\Phi : L \to E$); Canonical Lattice: $40 \succ 32 \succ 30 \succ 12 \succ 10 \succ 0$ | Standardized (`ARC-ERR-2026-001`) |
+| **ACS-2** | Bare-Metal Rust Membrane (Constrained Realization) | `#[no_std]`, `M_alloc = 0`, `S_max ≤ 4096 B`, `τ_override ≤ 11.99 ms`, 96B `ExecutionPermit` | Enforced |
 | **ACS-1** | Actuator Gate / Sidecars | Single-Commit Gate: $\sum \text{CommittedEffects}(o) \le 1$, $D(a) = \text{DENY} \implies \Delta_{\text{external}}(a) = 0$ | Enforced |
 
 ---
@@ -39,6 +42,8 @@ To prevent link rot, platform mutability, or retroactive revisionism, all public
 | **Public Lead Thesis & Pipeline Specification** | Post ID `2118032989837787173` | `https://archive.is/GM21I` | 2026-11-04 17:47:25 UTC |
 | **Frontier Reasoning Wire Attestation (@grok)** | Status ID `2118034543663853784` | `https://archive.is/HWqmW` | 2026-11-04 17:47:25 UTC |
 | **Canonical Long-Form Article (Substack)** | `https://founderarcstoneos.substack.com/p/beyond-social-assurance-formal-invariants` | Canonical Substack Record | 2026-11-04 UTC |
+| **Executive Memorandum (Substack)** | `https://founderarcstoneos.substack.com/p/the-machine-native-diligence-inversion` | Canonical Substack Record | 2026-11-10 UTC |
+| **Multi-Model Substrate Audit Attestation (@grok)** | Status ID `2120368016491745738` | Live X Thread | 2026-11-10 22:28:00 UTC |
 
 ---
 
@@ -63,7 +68,7 @@ To prevent link rot, platform mutability, or retroactive revisionism, all public
 - **Attestation Verdict:** `PROOF-CHAIN-CLOSED / ZERO-SEMANTIC-LEAKAGE / PRODUCTION-READY`
 - **Synthesized Proof-Chain Artifacts:**
   1. `dae_invariants.v`: Constructive Coq/CIC inductive definition proving unprivileged TCM write isolation under zero unproven postulates (`Print Assumptions ≡ ∅`).
-  2. `functor_bridge.v`: Category-theoretic order homomorphism proof verifying $\Phi(a \vee_L b) = \Phi(a) \vee_E \Phi(b)$ and demonstrating `POSIX 10 (FREEZE)` $\notin \text{Im}(\Phi)$.
+  2. `functor_bridge.v`: Category-theoretic order homomorphism proof verifying $\Phi(a \vee_L b) = \Phi(a) \vee_E \Phi(b)$ and demonstrating `POSIX 10 (FREEZE)` $\notin \mathrm{Im}(\Phi)$.
   3. `xdp_dae_filter.c`: Ring-0 eBPF XDP wire filter enforcing $S_{\max} \le 4096\text{ B}$ frame bounds and line-rate `XDP_DROP` mapping directly to `POSIX 32 (REFUSAL)`.
   4. `dae_wire.rs`: Freestanding `#[no_std]` and `#[forbid(unsafe_code)]` Rust ingress codec enforcing $M_{\text{alloc}} = 0$ on critical decision paths.
   5. `dae_verifier.circom`: BN254 Poseidon zero-knowledge constraint circuit enforcing non-linear trap state conditions with zero under-constrained signals.
